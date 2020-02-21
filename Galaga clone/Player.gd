@@ -5,13 +5,13 @@ signal hit
 # Declare member variables here. Examples:
 export var speed = 250
 var screen_size
+var is_shooting
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	screen_size = get_viewport_rect().size
 	#hide()
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -39,7 +39,7 @@ func _process(delta):
 	
 
 
-func _on_Player_body_entered(body):
+func _on_Player_body_entered():
 	hide()
 	emit_signal("hit")
 	$CollisionShape2D.set_deferred("disabled", true)
