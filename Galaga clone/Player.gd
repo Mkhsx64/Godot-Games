@@ -5,7 +5,7 @@ signal hit
 # Declare member variables here. Examples:
 export var speed = 250
 var screen_size
-var is_shooting
+var Bullet = preload("res://Bullet.tscn")
 
 
 # Called when the node enters the scene tree for the first time.
@@ -30,14 +30,20 @@ func _process(delta):
 		$AnimatedSprite.play("idle")
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
+	if Input.is_action_pressed("ui_accept"):
+		shoot()
 	else:
 		$AnimatedSprite.play("idle")
 	
 	position += velocity * delta
 	position.x = clamp(position.x, 0, screen_size.x)
 	position.y = clamp(position.y, 0, screen_size.y)
-	
 
+# function to control shooting
+func shoot():
+	var b = Bullet.instance()
+	b.start($Muzzle.global_position, rotation)
+	get_parent().add_child(b)
 
 func _on_Player_body_entered():
 	hide()

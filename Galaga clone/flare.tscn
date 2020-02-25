@@ -13,20 +13,6 @@ animations = [ {
 [sub_resource type="Animation" id=2]
 resource_name = "fade_out"
 length = 0.5
-tracks/0/type = "method"
-tracks/0/path = NodePath(".")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0.2 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "hide"
-} ]
-}
 
 [node name="flare" type="AnimatedSprite"]
 position = Vector2( 0.397217, 0.397209 )
